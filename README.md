@@ -1,7 +1,7 @@
 # Spanning Tree Visualizer 👀
 **The Problem:**
 
-  Suppose we are given a set of vertices V = {*v<sup>1</sup>, v<sup>2</sup>, ..., v<sup>n</sup>*} and the goal is to make a network on top of them. The network should be connected such that there 
+  Suppose we are given a set of vertices V = { *v<sup>1</sup>, v<sup>2</sup>, ..., v<sup>n</sup>* } and the goal is to make a network on top of them. The network should be connected such that there 
 is a path between every pair of nodes while also keeping the cost of the network as cheap (or expensive) as possible.
 
 Specific to this project, every vertice is a point with an asscociated x and y coordinate and for each pair of vertices there is a link between them associated
@@ -31,7 +31,33 @@ O(E(log(E)) + E(α(V))) time as each iteration during the iteration of all edges
 A future change I would like to implement is eliminating the assumption that the full graph G = (V, E) is connected. I would like to add a feature that allows the minimum (or maximum) spanning tree to be produced for one component of the graph until no more vertices can be reached and then start the algorithm again on a different component of the graph that is disjoint from the first component and produce another minimum (or maximum) spanning tree for that component.
 
 # Usage # 
+**Generate:** Make a new set of vertices with the amount specifed by the slider at the bottom of the display.
 
+**Run Kruskal's ALgorithm:** Start Kruskal's algortithm with the delay amount in milliseconds specified by the slider at the bottom of the display.
 
+**Max or Min Spanning Tree:** Determines the direction edges will be sorted by weight. Affect wont be active unless hit 'Apply'.
 
+**Anti-Aliasing:** Smooths out all graphics in the display at the cost of a slower runtime.
 
+# Installation #
+Install Java jdk 16.
+```console
+~$ sudo apt install openjdk-16-jdk
+```
+Navigate to root directory
+```console
+~/Downloads/$ cd spanning_tree_visualizer-main
+```
+Navigate to src folder
+```console
+~/Downloads/spanning_tree_visualizer-main/$ cd src
+```
+Compile all required java files
+```console
+~/Downloads/spanning_tree_visualizer-main/src javac structures/*.java
+~/Downloads/spanning_tree_visualizer-main/src javac GUI/*.java
+```
+Run Main.java
+```console
+~/Downloads/spanning_tree_visualizer-main/src java GUI/Main.java
+```
