@@ -50,7 +50,7 @@ sudo apt install openjdk-16-jdk
 ```
 Navigate to root directory and change directory into src.
 ```console
-cd spanning_tree_visualizer-main/src
+cd spanning_tree_visualizer/src
 ```
 Compile all required java files
 ```console
