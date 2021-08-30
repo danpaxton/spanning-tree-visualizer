@@ -44,22 +44,18 @@ Download and extract zip or clone the project to the directory of choice.
 
 Install Java jdk 16.
 ```console
-~$ sudo apt install openjdk-16-jdk
+sudo apt install openjdk-16-jdk
 ```
-Navigate to root directory
+Navigate to root directory and change directory into src.
 ```console
-~/Downloads/$ cd spanning_tree_visualizer-main
-```
-Navigate to src folder
-```console
-~/Downloads/spanning_tree_visualizer-main/$ cd src
+cd spanning_tree_visualizer-main
 ```
 Compile all required java files
 ```console
-~/Downloads/spanning_tree_visualizer-main/src/$ javac structures/*.java
-~/Downloads/spanning_tree_visualizer-main/src/$ javac GUI/*.java
+javac structures/*.java
+javac GUI/*.java
 ```
 Run Main.java
 ```console
-~/Downloads/spanning_tree_visualizer-main/src/$ java GUI/Main.java
+java GUI/Main.java
 ```
