@@ -42,9 +42,9 @@ public class GraphMST<T> {
         edgeList.add(edge);
     }
     /* Kruskal's algorithm. Utilizes the UnionFind data structure to find a minimum spanning tree(or maximum).
-    The find() and union() operations are near constant runtimes O(α(V)), bounded by the inverse Ackermann function 'α'.
-    The priority queue poll() operation runtime is O(log(V)). Inverse Ackermann has a slower asymptotic growth than log,
-    thus a worst-case runtime of O(E log(V)).This implementation adds all edges considered, edges that create a cycle are marked.
+    The find() and union() operations are near constant in O(α(V)) time, bounded by the inverse Ackermann function 'α'.
+    The priority queue poll() operation runtime is O(log(E)) time. Inverse Ackermann has a slower asymptotic growth than log,
+    thus a worst-case runtime of O(E log(E)).This implementation adds all edges considered, edges that create a cycle are marked.
      */
     public ArrayList<Edge<T>> KruskalMST() {
         // Initialize union find data structure.
@@ -52,12 +52,12 @@ public class GraphMST<T> {
         // Minimum spanning tree must be of size (total # of vertices) - 1.
         ArrayList<Edge<T>> MST = new ArrayList<>();
         for (int i = 0; i < V - 1; i++) {
-            // Remove next edge sorted by weight.
+            // Remove next edge sorted by weight. O(log(E)).
             Edge<T> currEdge = edgeList.poll();
             if (currEdge == null) {
                 throw new NullPointerException("Current edge must be not be null.");
             }
-            // Find which subsets src and dest of current edge belong to.
+            // Find which subsets src and dest of current edge belong to. O(α(V)).
             IndexedObject<T> a = subsets.find(currEdge.getSrc());
             IndexedObject<T> b = subsets.find(currEdge.getDest());
             if (a != b) {

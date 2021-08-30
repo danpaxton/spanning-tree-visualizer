@@ -64,5 +64,9 @@ public class UnionFind<T> {
             subset[subB.index()].setRoot(subA);
         }
     }
+    // Getter, O(1).
+    public Subset<T>[] getSubset() {
+        return subset;
+    }
 }
 
