@@ -4,7 +4,7 @@
   Suppose we are given a set of vertices V = { *v<sup>1</sup>, v<sup>2</sup>, ..., v<sup>n</sup>* } and the goal is to make a network on top of them. The network should be connected such that there 
 is a path between every pair of nodes while also keeping the cost of the network as cheap (or expensive) as possible.
 
-Specific to this project, every vertice is a point with an asscociated x and y coordinate and for each pair of vertices there is a link between them associated
+Specific to this project, every vertex is a point with an asscociated x and y coordinate and for each pair of vertices there is a link between them associated
 with a postive edge cost defined by the euclidean distance between the two points, the formula ((x2 - x1)<sup>2</sup> + (y2 - y1)<sup>2</sup>)<sup>.5</sup>. The problem now presents itself
 as such, given all edges E representing all possible links that can be made in the full graph G = (V, E) find a subset of edges T such that the graph G = (V, T) is 
 connected with total distance minimzed (or maximized). For the purposes of this project the full graph G is assumed to be connected as if it was not the
@@ -16,7 +16,7 @@ case there would be no possible solution.
 
 **Union-Find (Disjont-Set) Data Structure:**
 
-  This data structure maintains disjoint subsets of V in the graph G =(V,E) and supports 3 main functions. The contructor UnionFind(Vertices v) takes all vertices of the graph and initializes each vertice to it's own subset (parent pointer is itself). Subsets are represented by a root vertice with parent pointers from children vertices up to the root. The find(vertice v) operation, given a vertice v return the subset containing v by following parent pointers until the root is found. This implementation of the find() operation utilizes path compression, after the subset (root) of v is found assign all parent pointers on the path from v to root directly to the root. Path compression allows the operation to acheive an armortised runtime in O(α(V)) time bounded by the extremely slow growing inverse ackermann function. The union(vertice a, vertice b) operation takes two vertices and using the find() opertion finds which subsets each vertice belongs to and merges them into one subset. The runtime of the union() operation is bounded by calls to the find() operation, thus O(α(V)) time. Alternatively, the runtime of Kruskal is in O(E(log(E)) + E(α(V))) time as each iteration during the iteration of all edges contains calls to the find() and possibly union() operations. The inverse ackermann function α(V) has a much slower asymptotic growth than log(E) so the runtime is still dominated by at most E calls to the O(log(E)) time poll() opertion, thus the runtime remains in O(E(log(E)) time as stated before.
+  This data structure maintains disjoint subsets of V in the graph G =(V,E) and supports 3 main functions. The contructor UnionFind(Vertices v) takes all vertices of the graph and initializes each vertex to it's own subset (parent pointer is itself). Subsets are represented by a root vertex with parent pointers from children vertices up to the root. The find(vertex v) operation, given a vertex v return the subset containing v by following parent pointers until the root is found. This implementation of the find() operation utilizes path compression, after the subset (root) of v is found assign all parent pointers on the path from v to root directly to the root. Path compression allows the operation to acheive an armortised runtime in O(α(V)) time bounded by the extremely slow growing inverse ackermann function. The union(vertex a, vertex b) operation takes two vertices and using the find() opertion finds which subsets each vertex belongs to and merges them into one subset. The runtime of the union() operation is bounded by calls to the find() operation, thus O(α(V)) time. Alternatively, the runtime of Kruskal is in O(E(log(E)) + E(α(V))) time as each iteration during the iteration of all edges contains calls to the find() and possibly union() operations. The inverse ackermann function α(V) has a much slower asymptotic growth than log(E) so the runtime is still dominated by at most E calls to the O(log(E)) time poll() opertion, thus the runtime remains in O(E(log(E)) time as stated before.
 
 **Graphical User Interface:**
 
@@ -24,7 +24,7 @@ case there would be no possible solution.
   
 **Problems and Future Changes:**
 
-  A problem encountered was the issue of non-distinct edge costs in the graph. It would seem to have an effect on the outcome of the tree as considering edges in different orders could produce a different spanning tree. While this issue seems like it would pose a problem, the final solution remains valid if the issue is ignored all together. For example, assume the priority queue storing all edges sorted by weight would remove two edges consecutively that have the same edge weight. Assume it adds the first one to the tree and the second one would not be added as the first one covered the vertice the second edge would connect and adding it would create a cycle. Whether or not the first one or second one was added to the tree the total distance would still be minimized because both considered edges are the exact same weight, either would result in a valid minimum spanning tree.
+  A problem encountered was the issue of non-distinct edge costs in the graph. It would seem to have an effect on the outcome of the tree as considering edges in different orders could produce a different spanning tree. While this issue seems like it would pose a problem, the final solution remains valid if the issue is ignored all together. For example, assume the priority queue storing all edges sorted by weight would remove two edges consecutively that have the same edge weight. Assume it adds the first one to the tree and the second one would not be added as the first one covered the vertex the second edge would connect and adding it would create a cycle. Whether or not the first one or second one was added to the tree the total distance would still be minimized because both considered edges are the exact same weight, either would result in a valid minimum spanning tree.
   
 A future change I would like to implement is eliminating the assumption that the full graph G = (V, E) is connected. I would like to add a feature that allows the minimum (or maximum) spanning tree to be produced for one component of the graph until no more vertices can be reached and then start the algorithm again on a different component of the graph that is disjoint from the first component and produce another minimum (or maximum) spanning tree for that component.
 
@@ -44,7 +44,7 @@ Clone the project to the directory of choice. (or download zip file and extract.
 ```console
 git clone https://github.com/danpaxton/spanning_tree_visualizer
 ```
-Install Java jdk 16. Or downlaod from Oracle https://www.oracle.com/java/technologies/javase-jdk16-downloads.html
+Install Java jdk 16. Or download and install from Oracle https://www.oracle.com/java/technologies/javase-jdk16-downloads.html
 ```console
 sudo apt install openjdk-16-jdk
 ```
