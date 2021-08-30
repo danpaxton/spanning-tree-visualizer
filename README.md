@@ -46,7 +46,7 @@ git clone https://github.com/danpaxton/spanning_tree_visualizer
 ```
 Install Java jdk 16.
 ```console
-sudo apt install openjdk-16-jdk
+sudo apt install openjdk-16-jdk-headless
 ```
 Navigate to root directory and change directory into src.
 ```console
