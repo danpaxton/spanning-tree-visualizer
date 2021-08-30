@@ -16,30 +16,31 @@ case there would be no possible solution.
 
 **Union-Find (Disjont-Set) Data Structure:**
 
-  This data structure maintains disjoint subsets of V in the graph G =(V,E). The contructor UnionFind(Vertices v) takes all vertices of the graph and initializes each vertice to it's own subset (parent pointer is itself). Subsets are represented by a root vertice whith parent pointers from children vertices up to the root. The find(vertice v) operation, given a vertice v return the subset containing v by following parent pointers until the root is found. This implementation of the find() operation utilizes path compression, after the subset (root) of v is found assign all parent pointers on the path from v to root directly to the root. Path compression allows the operation to acheive an armortised runtime in O(α(V)) time bounded by the extremely slow growing inverse ackermann function. 
-The union(vertice a, vertice b) takes two vertices and using the find() opertion finds which subsets each vertice belongs to and merges them into one subset. The runtime of the union() operation is bounded by calls to the find() operation, thus O(α(V)) time. More precisely, the runtime of Kruskal's is in 
-O(E(log(E)) + E(α(V))) time as each iteration during the iteration of all edges contains calls to the find() and possibly union() operations. The inverse ackermann function α(V) has a much slower asymptotic growth than log(E) so the runtime is still dominated by at most E calls to the O(log(E)) time poll() opertion, thus the runtime remains in O(E(log(E)) time as stated before.
+  This data structure maintains disjoint subsets of V in the graph G =(V,E) and supports 3 main functions. The contructor UnionFind(Vertices v) takes all vertices of the graph and initializes each vertice to it's own subset (parent pointer is itself). Subsets are represented by a root vertice with parent pointers from children vertices up to the root. The find(vertice v) operation, given a vertice v return the subset containing v by following parent pointers until the root is found. This implementation of the find() operation utilizes path compression, after the subset (root) of v is found assign all parent pointers on the path from v to root directly to the root. Path compression allows the operation to acheive an armortised runtime in O(α(V)) time bounded by the extremely slow growing inverse ackermann function. The union(vertice a, vertice b) operation takes two vertices and using the find() opertion finds which subsets each vertice belongs to and merges them into one subset. The runtime of the union() operation is bounded by calls to the find() operation, thus O(α(V)) time. Alternatively, the runtime of Kruskal is in O(E(log(E)) + E(α(V))) time as each iteration during the iteration of all edges contains calls to the find() and possibly union() operations. The inverse ackermann function α(V) has a much slower asymptotic growth than log(E) so the runtime is still dominated by at most E calls to the O(log(E)) time poll() opertion, thus the runtime remains in O(E(log(E)) time as stated before.
 
 **Graphical User Interface:**
 
-  The GUI was built using Java awt for graphics and Java swing for the frame. Animation is achieved using a timer that will execute drawings during each iteration of the timer. By storing the lines to be drawn in a list, each iteration will repaint and draw all lines in the list whose size will increase as more lines are added during consecutive iterations of the timer. There are two types of lines red and gray, red lines are the edges that belong to the minimum (or maximum) spanning tree and gray lines are the edges considered by Kruskal's algorithm but are not included as they would create a cycle. A load symbol will appear in the bottom right of the screen until the animation finishes. Finally, the background component will change colors signalling that the animation has finished.
+  The GUI was built using Java awt for graphics and Java swing for the frame. Animation is achieved using a timer that will execute drawings during each iteration of the timer. The lines to be drawn are stored in a list, each iteration of the timer will repaint and redraw each line while the size continues to increase as more lines are added. There are two types of lines red and gray, red lines are the edges that belong to the minimum (or maximum) spanning tree and gray lines are the edges considered by Kruskal's algorithm but are not included as they would create a cycle. A load symbol will appear in the bottom right of the screen until the animation finishes. Finally, the background component will change colors signalling that the animation has finished.
   
 **Problems and Future Changes:**
 
-  A problem encountered was the issue of non-distinct edge costs in the graph, this issue would seem to have an effect on the outcome of the tree as considering edges in different orders could produce a different spanning tree. While this issue seems like it would pose a problem, completely ignoring it is the best solution. For example, the priority queue storing all edges sorted by weight would poll() two edges that have the same edge weight and it adds the first one to the tree and the second one would not be added as the first one covered the vertices the second one connects. Whether or not the first one or second one was added to the tree the total distance would still be minimized because both considered edges are the same exact weight, either would result in a valid minimum spanning tree.
+  A problem encountered was the issue of non-distinct edge costs in the graph. It would seem to have an effect on the outcome of the tree as considering edges in different orders could produce a different spanning tree. While this issue seems like it would pose a problem, the final solution remains valid if the issue is ignored all together. For example, assume the priority queue storing all edges sorted by weight would remove two edges consecutively that have the same edge weight. Assume it adds the first one to the tree and the second one would not be added as the first one covered the vertice the second edge would connect and adding it would create a cycle. Whether or not the first one or second one was added to the tree the total distance would still be minimized because both considered edges are the exact same weight, either would result in a valid minimum spanning tree.
   
 A future change I would like to implement is eliminating the assumption that the full graph G = (V, E) is connected. I would like to add a feature that allows the minimum (or maximum) spanning tree to be produced for one component of the graph until no more vertices can be reached and then start the algorithm again on a different component of the graph that is disjoint from the first component and produce another minimum (or maximum) spanning tree for that component.
 
 # Usage # 
+Functions of the buttons that control the GUI.
 **Generate:** Make a new set of vertices with the amount specifed by the slider at the bottom of the display.
 
 **Run Kruskal's ALgorithm:** Start Kruskal's algortithm with the delay amount in milliseconds specified by the slider at the bottom of the display.
 
-**Max or Min Spanning Tree:** Determines the direction edges will be sorted by weight. Affect wont be active unless hit 'Apply'.
+**Max or Min Spanning Tree:** Determines the direction edges will be sorted by weight. Change won't be active unless hit 'Apply'.
 
 **Anti-Aliasing:** Smooths out all graphics in the display at the cost of a slower runtime.
 
 # Installation #
+Download zip or clone the projects to the directory of choice.
+
 Install Java jdk 16.
 ```console
 ~$ sudo apt install openjdk-16-jdk
@@ -54,10 +55,10 @@ Navigate to src folder
 ```
 Compile all required java files
 ```console
-~/Downloads/spanning_tree_visualizer-main/src javac structures/*.java
-~/Downloads/spanning_tree_visualizer-main/src javac GUI/*.java
+~/Downloads/spanning_tree_visualizer-main/src/$ javac structures/*.java
+~/Downloads/spanning_tree_visualizer-main/src/$ javac GUI/*.java
 ```
 Run Main.java
 ```console
-~/Downloads/spanning_tree_visualizer-main/src java GUI/Main.java
+~/Downloads/spanning_tree_visualizer-main/src/$ java GUI/Main.java
 ```
