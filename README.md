@@ -39,7 +39,7 @@ Functions of the buttons that control the GUI.
 **Anti-Aliasing:** Smooths out all graphics in the display at the cost of a slower runtime.
 
 # Installation #
-Download zip or clone the projects to the directory of choice.
+Download zip or clone the project to the directory of choice.
 
 Install Java jdk 16.
 ```console
