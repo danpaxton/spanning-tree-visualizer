@@ -30,13 +30,14 @@ A future change I would like to implement is eliminating the assumption that the
 
 # Usage # 
 Functions of the buttons that control the GUI.
-**Generate:** Make a new set of vertices with the amount specifed by the slider at the bottom of the display.
 
-**Run Kruskal's ALgorithm:** Start Kruskal's algortithm with the delay amount in milliseconds specified by the slider at the bottom of the display.
+**Generate:**  Make a new set of vertices with the amount specifed by the slider at the bottom of the display.
 
-**Max or Min Spanning Tree:** Determines the direction edges will be sorted by weight. Change won't be active unless hit 'Apply'.
+**Run Kruskal's ALgorithm:**  Start Kruskal's algortithm with the delay amount in milliseconds specified by the slider at the bottom of the display.
 
-**Anti-Aliasing:** Smooths out all graphics in the display at the cost of a slower runtime.
+**Max or Min Spanning Tree:**  Determines the direction edges will be sorted by weight. Change won't be active unless hit 'Apply'.
+
+**Anti-Aliasing:**  Smooths out all graphics in the display at the cost of a slower runtime.
 
 # Installation #
 Download zip or clone the project to the directory of choice.
