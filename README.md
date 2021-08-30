@@ -40,11 +40,11 @@ Functions of the buttons that control the GUI.
 **Anti-Aliasing:**  Smooths out all graphics in the display at the cost of a slower runtime.
 
 # Installation #
-Clone the project to the directory of choice.
+Clone the project to the directory of choice. (or download zip file and extract.)
 ```console
 git clone https://github.com/danpaxton/spanning_tree_visualizer
 ```
-Install Java jdk 16.
+Install Java jdk 16. Or downlaod from Oracle https://www.oracle.com/java/technologies/javase-jdk16-downloads.html
 ```console
 sudo apt install openjdk-16-jdk
 ```
