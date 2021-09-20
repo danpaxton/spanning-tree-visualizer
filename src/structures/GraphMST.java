@@ -31,7 +31,7 @@ public class GraphMST<T> {
     // Add new IndexedObject to vertices[]. O(1).
     public void addVertice(T v) {
         if (v == null) {
-            throw new NullPointerException("Vertices must not be null.");
+            throw new NullPointerException("Vertex must not be null.");
         }
         vertices[index] = new IndexedObject<>(v, index);
         index++;
