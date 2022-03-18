@@ -33,7 +33,7 @@ Functions of the buttons that control the GUI.
 
 **Generate:**  Make a new set of vertices with the amount specifed by the slider at the bottom of the display.
 
-**Run Kruskal's ALgorithm:**  Start Kruskal's algortithm with the delay amount in milliseconds specified by the slider at the bottom of the display.
+**Run Kruskal's Algorithm:**  Start Kruskal's algortithm with the delay amount in milliseconds specified by the slider at the bottom of the display.
 
 **Max or Min Spanning Tree:**  Determines the direction edges will be sorted by weight. Change won't be active unless hit 'Apply'.
 
