@@ -25,8 +25,6 @@ case there would be no possible solution.
 **Problems and Future Changes:**
 
   A problem encountered was the issue of non-distinct edge costs in the graph. It would seem to have an effect on the outcome of the tree as considering edges in different orders could produce a different spanning tree. While this issue seems like it would pose a problem, the final solution remains valid if the issue is ignored all together. For example, assume the priority queue storing all edges sorted by weight would remove two edges consecutively that have the same edge weight. Assume it adds the first one to the tree and the second one would not be added as the first one covered the vertex the second edge would connect and adding it would create a cycle. Whether or not the first one or second one was added to the tree the total distance would still be minimized because both considered edges are the exact same weight, either would result in a valid minimum spanning tree.
-  
-A future change I would like to implement is eliminating the assumption that the full graph G = (V, E) is connected. I would like to add a feature that allows the minimum (or maximum) spanning tree to be produced for one component of the graph until no more vertices can be reached and then start the algorithm again on a different component of the graph that is disjoint from the first component and produce another minimum (or maximum) spanning tree for that component.
 
 # Usage # 
 Functions of the buttons that control the GUI.

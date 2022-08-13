@@ -6,7 +6,7 @@ public class GUIFrame extends JFrame {
     // Set up window.
     public GUIFrame() {
         KruskalGraphics graphics = new KruskalGraphics();
-        this.setSize(1000, 1000);
+        this.setSize(1000, 625);
         this.setTitle("Spanning Tree Visualizer");
         this.setResizable(false);
         this.add(graphics);

@@ -106,7 +106,7 @@ public class KruskalGraphics extends JPanel implements ActionListener {
             start();
         });
         // Minimum or Maximum Spanning tree button option.
-        JLabel treeType = new JLabel("      Tree type =:");
+        JLabel treeType = new JLabel("      Tree type:");
         JRadioButton minB = new JRadioButton("Minimum Spanning");
         minB.setBorderPainted(true);
         minB.setActionCommand("Minimum Spanning");
@@ -135,7 +135,7 @@ public class KruskalGraphics extends JPanel implements ActionListener {
         topPanel.add(maxB);
         topPanel.add(apply);
         // Number of vertices slider.
-        JLabel sLabel = new JLabel("Number of Vertices =:");
+        JLabel sLabel = new JLabel("Number of Vertices:");
         JSlider sizeS = new JSlider(10, 500, 100);
         Hashtable<Integer, JLabel> labelTable = new Hashtable<>();
         labelTable.put(10, new JLabel("10"));
@@ -149,11 +149,8 @@ public class KruskalGraphics extends JPanel implements ActionListener {
         // Get new size for graph.
         sizeS.addChangeListener(l -> newSize = sizeS.getValue());
         // Delay slider.
-        JLabel dLabel = new JLabel("        Delay (ms) =:");
+        JLabel dLabel = new JLabel("        Delay:");
         JSlider speedS = new JSlider(0, 250);
-        speedS.setMajorTickSpacing(50);
-        speedS.setMinorTickSpacing(25);
-        speedS.setPaintLabels(true);
         speedS.addChangeListener(l -> delay = speedS.getValue());
         // Anti-Aliasing option button.
         JRadioButton aa = new JRadioButton("Anti-Aliasing (Slower Runtime)");
@@ -194,15 +191,15 @@ public class KruskalGraphics extends JPanel implements ActionListener {
         // Set circle width.
         int r;
         if (size <= 50)
-            r = 13;
+            r = 12;
         else if (size <= 100)
-            r = 11;
+            r = 10;
         else if (size <= 200)
-            r = 9;
+            r = 8;
         else if (size <= 300)
-            r = 7;
+            r = 6;
         else if (size <= 400)
-            r = 5;
+            r = 4;
         else
             r = 3;
         graph2D.setColor(Color.orange);
@@ -216,7 +213,7 @@ public class KruskalGraphics extends JPanel implements ActionListener {
         for (int i = 0; i < size; i++) {
             // True graphics area is bounded 10 <= x <= 990 and 45 <= y <= 910 to avoid clipping panels.
             int x = (int) (Math.random() * (990 - 10) + 1) + 10;
-            int y = (int) (Math.random() * (910 - 45) + 1) + 45;
+            int y = (int) (Math.random() * (535 - 45) + 1) + 45;
             // Add point.
             Point p = new Point(x, y);
             nodes.addVertice(p);
@@ -285,7 +282,7 @@ public class KruskalGraphics extends JPanel implements ActionListener {
         graph2D.setColor(Color.white);
         // Draw circle.
         // x,y coordinates and direction value v used for load animation.
-        int loady = 915;
+        int loady = 535;
         drawCenteredCircle(loadx, loady, 6);
     }
     // Determines the direction for load animation. O(1).
