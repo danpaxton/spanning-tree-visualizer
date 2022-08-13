@@ -63,5 +63,3 @@ java GUI/Main.java
 Kleinberg, J., &amp; Tardos Éva. (2014). Algorithm design. Pearson.
 
 Wikimedia Foundation. (2021, August 16). Disjoint-set data structure. Wikipedia. https://en.wikipedia.org/wiki/Disjoint-set_data_structure.
-
-YouTube. (2019). YouTube. https://www.youtube.com/watch?v=Stv1EmzDKnk&amp;t=422s&amp;ab_channel=BroCode. 
