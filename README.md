@@ -16,7 +16,7 @@ case there would be no possible solution.
 
 **Union-Find (Disjont-Set) Data Structure:**
 
-  This data structure maintains disjoint subsets of V in the graph G =(V,E) and supports 3 main functions. The contructor UnionFind(Vertices v) takes all vertices of the graph and initializes each vertex to it's own subset (parent pointer is itself). Subsets are represented by a root vertex with parent pointers from children vertices up to the root. The find(vertex v) operation, given a vertex v return the subset containing v by following parent pointers until the root is found. This implementation of the find() operation utilizes path compression, after the subset (root) of v is found assign all parent pointers on the path from v to root directly to the root. Path compression allows the operation to acheive an armortised runtime in O(α(V)) time bounded by the extremely slow growing inverse ackermann function. The union(vertex a, vertex b) operation takes two vertices and using the find() opertion finds which subsets each vertex belongs to and merges them into one subset. The runtime of the union() operation is bounded by calls to the find() operation, thus O(α(V)) time. Alternatively, the runtime of Kruskal is in O(E(log(E)) + E(α(V))) time as each iteration during the iteration of all edges contains calls to the find() and possibly union() operations. The inverse ackermann function α(V) has a much slower asymptotic growth than log(E) so the runtime is still dominated by at most E calls to the O(log(E)) time poll() opertion, thus the runtime remains in O(E(log(E)) time as stated before.
+  This data structure maintains disjoint subsets of V in the graph G =(V,E) and supports 3 main functions. The contructor UnionFind(Vertices v) takes all vertices of the graph and initializes each vertex to it's own subset (parent pointer is itself). Subsets are represented by a root vertex with parent pointers from children vertices up to the root. The find(vertex v) operation, given a vertex v this function returns the subset containing v by following parent pointers until the root is found. This implementation of the find() operation utilizes path compression, after the subset (root) of v is found assign all parent pointers on the path from v to root directly to the root. Path compression allows the operation to acheive an armortised runtime in O(α(V)) time bounded by the extremely slow growing inverse ackermann function. The union(vertex a, vertex b) operation takes two vertices and using the find() opertion finds which subsets each vertex belongs to and merges them into one subset. The runtime of the union() operation is bounded by calls to the find() operation, thus O(α(V)) time. Alternatively, the runtime of Kruskal is in O(E(log(E)) + E(α(V))) time as each iteration during the iteration of all edges contains calls to the find() and possibly union() operations. The inverse ackermann function α(V) has a much slower asymptotic growth than log(E) so the runtime is still dominated by at most E calls to the O(log(E)) time poll() opertion, thus the runtime remains in O(E(log(E)) time as stated before.
 
 **Graphical User Interface:**
 
@@ -39,24 +39,24 @@ Functions of the buttons that control the GUI.
 
 # Installation #
 Clone the project to the directory of choice. (or download zip file and extract.)
-```console
+```
 git clone https://github.com/danpaxton/spanning_tree_visualizer
 ```
 Install Java jdk 16. Or download and install from Oracle https://www.oracle.com/java/technologies/javase-jdk16-downloads.html
-```console
+```
 sudo apt install openjdk-16-jdk
 ```
 Navigate to root directory and change directory into src.
-```console
+```
 cd spanning_tree_visualizer/src
 ```
 Compile all required java files
-```console
+```
 javac structures/*.java
 javac GUI/*.java
 ```
 Run Main.java
-```console
+```
 java GUI/Main.java
 ```
 # Credits #
