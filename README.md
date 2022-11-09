@@ -22,7 +22,7 @@ case there would be no possible solution.
 
   The GUI was built using Java awt for graphics and Java swing for the frame. Animation is achieved using a timer that will execute drawings during each iteration of the timer. The lines to be drawn are stored in a list, each iteration of the timer will repaint and redraw each line while the size continues to increase as more lines are added. There are two types of lines red and gray, red lines are the edges that belong to the minimum (or maximum) spanning tree and gray lines are the edges considered by Kruskal's algorithm but are not included as they would create a cycle. A load symbol will appear in the bottom right of the screen until the animation finishes. Finally, the background component will change colors signalling that the animation has finished.
   
-**Problems and Future Changes:**
+**Problems:**
 
   A problem encountered was the issue of non-distinct edge costs in the graph. It would seem to have an effect on the outcome of the tree as considering edges in different orders could produce a different spanning tree. While this issue seems like it would pose a problem, the final solution remains valid if the issue is ignored all together. For example, assume the priority queue storing all edges sorted by weight would remove two edges consecutively that have the same edge weight. Assume it adds the first one to the tree and the second one would not be added as the first one covered the vertex the second edge would connect and adding it would create a cycle. Whether or not the first one or second one was added to the tree the total distance would still be minimized because both considered edges are the exact same weight, either would result in a valid minimum spanning tree.
 
