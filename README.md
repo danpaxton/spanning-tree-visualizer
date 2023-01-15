@@ -1,5 +1,7 @@
 # Spanning Tree Visualizer 👀
+**Demo:**
 https://user-images.githubusercontent.com/59029164/212563362-d200a90d-6d90-4d5b-b6e1-2043b5515b87.mov
+
 **The Problem:**
 
   Suppose we are given a set of vertices V = { *v<sup>1</sup>, v<sup>2</sup>, ..., v<sup>n</sup>* } and the goal is to make a network on top of them. The network should be connected such that there 
