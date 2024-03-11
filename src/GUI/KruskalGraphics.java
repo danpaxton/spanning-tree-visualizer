@@ -211,9 +211,9 @@ public class KruskalGraphics extends JPanel implements ActionListener {
     // Make nodes at random for the graph. O(V).
     public void makeVertices() {
         for (int i = 0; i < size; i++) {
-            // True graphics area is bounded 10 <= x <= 990 and 45 <= y <= 910 to avoid clipping panels.
-            int x = (int) (Math.random() * (990 - 10) + 1) + 10;
-            int y = (int) (Math.random() * (535 - 45) + 1) + 45;
+            // True graphics area is bounded to avoid clipping panels.
+            int x = (int) (Math.random() * 950) + 25;
+            int y = (int) (Math.random() * 425) + 75;
             // Add point.
             Point p = new Point(x, y);
             nodes.addVertice(p);
