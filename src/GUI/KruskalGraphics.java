@@ -33,11 +33,6 @@ public class KruskalGraphics extends JPanel implements ActionListener {
     private int delay;
     // Index in the mst list.
     private int index;
-    // X-coordinate and direction value for load animation.
-    private int loady;
-    private int loadv;
-    // Boolean value for if load symbol should appear.
-    private boolean loading;
     // Boolean value for anti-aliasing option.
     private boolean smoothGraphics;
     // Custom colors.
@@ -55,8 +50,6 @@ public class KruskalGraphics extends JPanel implements ActionListener {
         size = 100;
         newSize = size;
         delay = 125;
-        loady = 475;
-        loading = false;
         buttons();
         reset();
     }
@@ -75,9 +68,6 @@ public class KruskalGraphics extends JPanel implements ActionListener {
         // Draw visual components.
         drawLines();
         drawVertices();
-        if (loading) {
-            drawLoading();
-        }
         // Change background color after algorithm finishes.
         if (index == mst.size()) {
             this.setBackground(darkRed);
@@ -169,14 +159,12 @@ public class KruskalGraphics extends JPanel implements ActionListener {
     }
     // Start animation timer with current delay. O(1).
     public void start() {
-        loading = true;
         index = 0;
         timer.setDelay(delay);
         timer.start();
     }
     // Stop animation timer. O(1).
     public void stop() {
-        resetLoading();
         timer.stop();
         clearLines();
     }
@@ -277,22 +265,6 @@ public class KruskalGraphics extends JPanel implements ActionListener {
         lines.clear();
         repaint();
     }
-    // Draw loading animation. O(1).
-    public void drawLoading() {
-        graph2D.setColor(Color.white);
-        // Draw circle.
-        // x,y coordinates and direction value v used for load animation.
-        int loadx = 990;
-        drawCenteredCircle(loadx, loady, 6);
-    }
-    // Determines the direction for load animation. O(1).
-    public void loadAnim() {
-        if (loady == 510)
-            loadv = -1;
-        else if (loady == 475)
-            loadv = 1;
-        loady += loadv;
-    }
     // Draws load symbol and current edge in mst list, stops animation otherwise. Executes once for each timer tick determined by delay. O(1), O(E) total.
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -306,19 +278,11 @@ public class KruskalGraphics extends JPanel implements ActionListener {
                 // Non-Cycle edge.
                 drawEdge(currEdge, redOrange);
             }
-            loadAnim();
         } else {
             // Stop load animation and reset timer.
-            resetLoading();
             timer.stop();
         }
 
-    }
-    // Resets loading variables. O(1).
-    public void resetLoading() {
-        loading = false;
-        loadv = 0;
-        loady = 475;
     }
     // Resets variables for a new graph. O(V^2), makeEdges() dominates makeVertices() and KruskalMST().
     public void reset() {
