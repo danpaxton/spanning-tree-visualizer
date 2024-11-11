@@ -11,8 +11,7 @@ is a path between every pair of nodes while also keeping the cost of the network
 Specific to this project, every vertex is a point with an asscociated x and y coordinate and for each pair of vertices there is a link between them associated
 with a postive edge cost defined by the euclidean distance between the two points, the formula ((x2 - x1)<sup>2</sup> + (y2 - y1)<sup>2</sup>)<sup>.5</sup>. The problem now presents itself
 as such, given all edges E representing all possible links that can be made in the full graph G = (V, E) find a subset of edges T such that the graph G = (V, T) is 
-connected with total distance minimzed (or maximized). For the purposes of this project the full graph G is assumed to be connected as if it was not the
-case there would be no possible solution.
+connected with total distance minimzed (or maximized). For the purposes of this project the full graph G is assumed to be connected.
 
 **Kruskal's Algorithm:**
 
